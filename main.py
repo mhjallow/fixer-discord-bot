@@ -22,6 +22,13 @@ async def on_ready():
 async def on_message(message): #This function runs every time a message is sent anywhere the bot can see.
     if message.author.bot:
         return #Ignore messages sent by bots
-    print(f"Message from {message.author}: {message.content}")
+    
+    #Regular expression to match twitter links
+    pattern = r"(https://)(x\.com|twitter\.com|t\.co)([^\s]*)"
+
+    if re.search(pattern, message.content):
+        print("Found a twitter link!")
+    else:
+        print("No link in message.")
 
 client.run(TOKEN)

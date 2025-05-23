@@ -2,6 +2,7 @@ import discord
 import os
 from dotenv import load_dotenv
 import re
+from keep_alive import keep_alive
 
 #Load .env file
 load_dotenv()
@@ -45,4 +46,5 @@ async def on_message(message): #This function runs every time a message is sent 
         await message.delete() #Delete the original message
         await message.channel.send(f"{message.author.mention}: {fixed_link}")
 
+keep_alive() #Runs the webserver to keep the bot on if using Replit
 client.run(TOKEN)

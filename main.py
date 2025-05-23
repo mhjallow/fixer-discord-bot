@@ -30,8 +30,8 @@ def replace_twitter_links(msg):
     
     return re.sub(pattern, replace_domain, msg) #Applying the replacement function on the message with the pattern, returns the same string if it doesnt match the pattern
 
-@client.event
-async def on_ready():
+@client.event #This is how you register events
+async def on_ready(): #This function runs when the bot is ready
     print(F"✅ Logged in as {client.user}")
 
 @client.event

@@ -44,7 +44,15 @@ async def on_message(message): #This function runs every time a message is sent 
 
     if fixed_link != message.content: #If the message is the same as the result after replacement, that means it didn't contain a twitter link and it does nothing.
         await message.delete() #Delete the original message
-        await message.channel.send(f"{message.author.mention}: {fixed_link}")
+        # Create an embed to credit the user
+        embed = discord.Embed(
+            description=fixed_link,
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=f"{message.author.mention}", icon_url=message.author.avatar.url if message.author.avatar else discord.Embed.Empty)
+
+        await message.channel.send(embed=embed)
+        await message.channel.send(fixed_link)
 
 keep_alive() #Runs the webserver to keep the bot on if using Replit
 client.run(TOKEN)

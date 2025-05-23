@@ -7,3 +7,5 @@ FiXer is a Discord bot that detects Twitter/X links in messages and replaces the
 1. Clone this repo.
 2. Create a `.env` file with your bot token.
 3. Run `main.py`.
+
+Credit to Beau Carnes for keep_alive.py

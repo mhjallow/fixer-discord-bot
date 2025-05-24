@@ -46,7 +46,6 @@ async def on_message(message): #This function runs every time a message is sent 
         await message.delete() #Delete the original message
         # Create an embed to credit the user
         embed = discord.Embed(
-            description=fixed_link,
             color=discord.Color.blue()
         )
         embed.set_author(name=f"{message.author.display_name}", icon_url=message.author.avatar.url if message.author.avatar else discord.Embed.Empty)

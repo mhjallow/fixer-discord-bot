@@ -49,7 +49,7 @@ async def on_message(message): #This function runs every time a message is sent 
             description=fixed_link,
             color=discord.Color.blue()
         )
-        embed.set_author(name=f"{message.author.mention}", icon_url=message.author.avatar.url if message.author.avatar else discord.Embed.Empty)
+        embed.set_author(name=f"{message.author.display_name}", icon_url=message.author.avatar.url if message.author.avatar else discord.Embed.Empty)
 
         await message.channel.send(embed=embed)
         await message.channel.send(fixed_link)
